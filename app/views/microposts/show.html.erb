@@ -5,10 +5,18 @@
   <%= @micropost.content %>
 </p>
 
+
 <p>
-  <strong>User:</strong>
-  <%= @micropost.user_id %>
+	<strong>User:</strong>
+
+	<% User.where(id: [@micropost.user_id]).each do |user| %>
+	
+		<%= link_to user.name, user %>
+	
+	<% end %>
+
 </p>
+
 
 <%= link_to 'Edit', edit_micropost_path(@micropost) %> |
 <%= link_to 'Back', microposts_path %>
