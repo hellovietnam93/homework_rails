@@ -14,9 +14,11 @@
 	<strong>Ralative Post:</strong>
 <ul>
 	<% Micropost.where(user_id: [@user.id]).each do |user_micro| %>
-	<li>
-		<%= link_to user_micro.content, user_micro %>
-	</li>
+		<% if(user_micro) %>
+			<li>
+				<%= link_to user_micro.content, user_micro %>
+			</li>
+		<% end %>
 	<% end %>
 </ul>
 </p>
